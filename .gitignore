@@ -1,1 +1,3 @@
 node_modules/.cache
+node_modules/.cli-ngcc/7693a45f9ba78543b191b68125f28fcdc9aaeacdd74132ae59a074baeb04ae88.lock
+node_modules/__ngcc_entry_points__.json
