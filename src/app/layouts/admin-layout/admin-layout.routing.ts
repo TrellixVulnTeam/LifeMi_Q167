@@ -6,6 +6,8 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { UserComponent } from 'src/app/pages/user/user.component';
+import { RoleComponent } from 'src/app/pages/role/role.component';
+import { UserFormComponent } from 'src/app/pages/user/user-form/user-form.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -15,4 +17,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
 
     { path: 'user',           component: UserComponent },
+    { path: 'form-user',      component: UserFormComponent },
+    { path: 'role',           component: RoleComponent },
 ];

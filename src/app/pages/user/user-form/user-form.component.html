@@ -1,0 +1,71 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7 animate__animated animate__fadeIn">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Formulario {{ titlePlural }}</h3><br>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+              <button class="btn btn-sm btn-block btn-danger" type="button" [routerLink]="['/user']" >
+                <i class="fa fa-reply" aria-hidden="true"></i> Regresar 
+              </button>
+            </div>
+          </div><br>
+          
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label><b>Nombre</b></label>
+                  <input type="text" class="form-control" id="name" [(ngModel)]="user.name" name="name" placeholder="Nombre">
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label><b>Apellido</b></label>
+                  <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" name="lastName" placeholder="Apellido paterno">
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label><b>Código</b></label>
+                  <input type="text" class="form-control" id="codeUser" [(ngModel)]="user.codeUser" name="codeUser" placeholder="Código">
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label><b>Estatus</b></label>
+                  <select class="form-control" id="status" [(ngModel)]="user.status" name="status">
+                    <option selected value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                  </select>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="row">
+              <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10"></div>
+              <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                <!-- Agregar-->
+                <button class="btn btn-sm btn-success btn-block" type="button" (click)='create()'>
+                  <i class="fas fa-plus"></i> Guardar {{ titleSingular }}
+                </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,8 +12,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+
 import { UserComponent } from './pages/user/user.component';
 import { UserService } from './services/user.service';
+import { UserFormComponent } from './pages/user/user-form/user-form.component';
+import { RoleComponent } from './pages/role/role.component';
 
 
 @NgModule({
@@ -24,13 +27,15 @@ import { UserService } from './services/user.service';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    UserComponent
+    UserComponent,
+    UserFormComponent,
+    RoleComponent,
   ],
   providers: [
     UserService,

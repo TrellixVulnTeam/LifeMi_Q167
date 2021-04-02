@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user',
@@ -10,34 +11,37 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserComponent implements OnInit {
 
+  titleSingular : string = 'Usuario';
+  titlePlural : string = 'Usuarios';
   listUsers : User[];
-  closeResult = '';
 
   constructor(private userService : UserService,
               private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.userService.get().subscribe(
-      res => this.listUsers = res
-    )
+    this.get();
+    // swal('Cliente Guardado', `Hola`, 'success');
   }
 
-  // open(content) {
-  //   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-  //     this.closeResult = `Closed with: ${result}`;
-  //   }, (reason) => {
-  //     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-  //   });
-  // }
+  public get() : void {
+    this.userService.get().subscribe( res => this.listUsers = res );
+  }
+  
+  public delete(user : User) : void {
+    this.userService.delete(user.idUser).subscribe( response => {
+      console.log("-- Response --");
+      console.log(response);
 
-  // private getDismissReason(reason: any): string {
-  //   if (reason === ModalDismissReasons.ESC) {
-  //     return 'by pressing ESC';
-  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-  //     return 'by clicking on a backdrop';
-  //   } else {
-  //     return `with: ${reason}`;
-  //   }
-  // }
-
+      if (response.status == 200) {
+        if (user.status > 0) {
+          swal('Registro Deshabilitado', '', 'success');   
+        } else {
+          swal('Registro Habilitado', '', 'success');
+        }
+        this.get();
+      } else {
+        swal('Error', response.message, 'error');
+      }
+    });
+  }
 }
