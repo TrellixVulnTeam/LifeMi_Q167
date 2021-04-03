@@ -23,7 +23,8 @@
         <div class="row justify-content-center">
           <div class="col-xs-12 col-md-11 col-lg-11 col-xl-11">
             <div class="table-responsive" *ngIf="listUsers?.length > 0">
-              <table class="table align-items-center table-flush table-hover table-sm">
+              <table class="table align-items-center table-flush table-hover table-sm" 
+                    datatable [dtOptions]="dtOptions">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">#</th>

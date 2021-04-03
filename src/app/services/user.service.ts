@@ -26,4 +26,9 @@ export class UserService {
   delete(id : number) : Observable<any> {
     return this.http.delete<any>(`${this.urlEndPoint}/${id}`, { headers: this.httpHeaders });
   }
+
+  update(user : User) : Observable<any> {
+    console.log(user)
+    return this.http.put<any>(this.urlEndPoint, user, { headers: this.httpHeaders });
+  }
 }

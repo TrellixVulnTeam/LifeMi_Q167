@@ -17,6 +17,7 @@ import { UserComponent } from './pages/user/user.component';
 import { UserService } from './services/user.service';
 import { UserFormComponent } from './pages/user/user-form/user-form.component';
 import { RoleComponent } from './pages/role/role.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { RoleComponent } from './pages/role/role.component';
     NgbModule,
     RouterModule,
     AppRoutingModule,
+    DataTablesModule
   ],
   declarations: [
     AppComponent,
