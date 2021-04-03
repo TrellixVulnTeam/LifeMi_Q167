@@ -15,11 +15,11 @@ export const ROUTES: RouteInfo[] = [
     // { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
     // { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
 
-    { path: '/user', title: 'Usuarios',  icon:'ni-single-02 text-blue', class: '' },
-    { path: '/role', title: 'Roles',  icon:'fa fa-tag text-blue', class: '' },
-    { path: '/#', title: 'Funciones',  icon:'fab fa-elementor text-blue', class: '' },
-    { path: '/#', title: 'Productos',  icon:'fa fa-cubes text-blue', class: '' },
-    { path: '/#', title: 'Categoria',  icon:'fas fa-bookmark text-blue', class: '' },
+    { path: '/user', title: 'Usuarios',  icon:'ni-single-02 text-info', class: '' },
+    { path: '/role', title: 'Roles',  icon:'fa fa-tag text-info', class: '' },
+    { path: '/#', title: 'Funciones',  icon:'fab fa-elementor text-info', class: '' },
+    { path: '/#', title: 'Productos',  icon:'fa fa-cubes text-info', class: '' },
+    { path: '/#', title: 'Categoria',  icon:'fas fa-bookmark text-info', class: '' },
 ];
 
 @Component({

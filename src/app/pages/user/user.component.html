@@ -1,4 +1,4 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
 
 </div>
 <!-- Page content -->
@@ -54,7 +54,9 @@
                     </td>
                     <td>{{item.creationDateFormat}}</td>
                     <td>
-                      <button type="button" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</button> &nbsp;
+                      <button type="button" class="btn btn-warning btn-sm" [routerLink]="['/form-user', item.idUser]">
+                        <i class="fas fa-edit"></i> Editar
+                      </button> &nbsp;
 
                       <ng-container *ngIf="(item.status == 1)">
                         <button type="button" class="btn btn-danger btn-sm" (click)='delete(item)'>
@@ -73,8 +75,9 @@
               </table>
             </div>
           </div>
-        </div>
-        
+        </div><br>
+
+        <!--
         <div class="card-footer py-4">
           <nav aria-label="...">
             <ul class="pagination justify-content-end mb-0">
@@ -100,6 +103,7 @@
             </ul>
           </nav>
         </div>
+      -->
       </div>
     </div>
   </div>

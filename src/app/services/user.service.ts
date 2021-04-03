@@ -19,6 +19,10 @@ export class UserService {
     return this.http.get<User[]>(this.urlEndPoint);
   }
 
+  getById(id : number) : Observable<User> {
+    return this.http.get<User>(`${this.urlEndPoint}/${id}`);
+  }
+
   create(user : User) : Observable<any> {
     return this.http.post<any>(this.urlEndPoint, user, { headers: this.httpHeaders });
   }
@@ -28,7 +32,6 @@ export class UserService {
   }
 
   update(user : User) : Observable<any> {
-    console.log(user)
     return this.http.put<any>(this.urlEndPoint, user, { headers: this.httpHeaders });
   }
 }
