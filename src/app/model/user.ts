@@ -6,5 +6,7 @@ export class User {
     lastName : string;
     creationDate : Date;
     modificationDate : Date;
-    status : number;
+    status : number = 1;
+    creationDateFormat: string;
+    modificationDateFormat: string;
 }

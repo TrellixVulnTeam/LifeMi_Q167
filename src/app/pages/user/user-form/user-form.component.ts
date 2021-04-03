@@ -11,9 +11,10 @@ import swal from 'sweetalert2';
 })
 export class UserFormComponent implements OnInit {
 
-  public user : User = new User();
-  public titleSingular: string = 'Usuario';
-  public titlePlural: string = 'Usuarios';
+  user : User = new User();
+  titleSingular: string = 'Usuario';
+  titlePlural: string = 'Usuarios';
+  iconText: string = 'ni-single-02';
 
   constructor(private userService: UserService,
     private router: Router,

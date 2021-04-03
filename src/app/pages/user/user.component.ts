@@ -17,6 +17,7 @@ export class UserComponent implements OnInit {
   titlePlural : string = 'Usuarios';
   listUsers : User[] = [];
   dtOptions: any;
+  iconText: string = 'ni-single-02';
 
   constructor(private userService : UserService,
               private modalService: NgbModal) { }
