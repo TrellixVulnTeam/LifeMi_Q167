@@ -18,36 +18,56 @@
             </div>
           </div><br>
           
-          <form>
+          <form #moduleForm="ngForm">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label><b>Nombre</b></label>
-                  <input type="text" class="form-control" id="name" [(ngModel)]="user.name" name="name" placeholder="Nombre">
+                  <input type="text" class="form-control" id="name" [(ngModel)]="user.name" name="name" placeholder="Nombre" #name="ngModel" required>
+                  <div class="" *ngIf="name.invalid && (name.dirty || name.touched)">
+                    <div *ngIf="name.errors.required">
+                      <span class="badge badge-danger"><i class="fas fa-times"></i> Nombre es requerido</span>
+                    </div>
+                  </div>
                 </div>
               </div>
   
               <div class="col-md-6">
                 <div class="form-group">
                   <label><b>Apellido</b></label>
-                  <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" name="lastName" placeholder="Apellido paterno">
+                  <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" name="lastName" placeholder="Apellido paterno" #lastName="ngModel" required>
+                  <div class="" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                    <div *ngIf="lastName.errors.required">
+                      <span class="badge badge-danger"><i class="fas fa-times"></i> Apellido es requerido</span>
+                    </div>
+                  </div>
                 </div>
               </div>
   
               <div class="col-md-6">
                 <div class="form-group">
                   <label><b>Código</b></label>
-                  <input type="text" class="form-control" id="codeUser" [(ngModel)]="user.codeUser" name="codeUser" placeholder="Código">
+                  <input type="text" class="form-control" id="codeUser" [(ngModel)]="user.codeUser" name="codeUser" placeholder="Código" #codeUser="ngModel" required>
+                  <div class="" *ngIf="codeUser.invalid && (codeUser.dirty || codeUser.touched)">
+                    <div *ngIf="codeUser.errors.required">
+                      <span class="badge badge-danger"><i class="fas fa-times"></i> Código es requerido</span>
+                    </div>
+                  </div>
                 </div>
               </div>
   
               <div class="col-md-6">
                 <div class="form-group">
                   <label><b>Estatus</b></label>
-                  <select class="form-control" id="status" [(ngModel)]="user.status" name="status">
+                  <select class="form-control" id="status" [(ngModel)]="user.status" name="status" #status="ngModel" required>
                     <option value="1">Activo</option>
                     <option value="0">Inactivo</option>
                   </select>
+                  <div class="" *ngIf="status.invalid && (status.dirty || status.touched)">
+                    <div *ngIf="status.errors.required">
+                      <span class="badge badge-danger"><i class="fas fa-times"></i> Estatus es requerido</span>
+                    </div>
+                  </div>
                 </div>
               </div>
   
@@ -57,12 +77,13 @@
               <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10"></div>
               <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                 <!-- Agregar-->
-                <button class="btn btn-sm btn-success btn-block" type="button" (click)='create()' *ngIf="!user.idUser else elseBlock">
+                <button class="btn btn-sm btn-success btn-block" type="button" (click)='create()' 
+                        *ngIf="!user.idUser else elseBlock" [disabled]="!moduleForm.form.valid">
                   <i class="fas fa-plus"></i> Guardar {{ titleSingular }}
                 </button>
                 <!-- Editar -->
                 <ng-template #elseBlock>
-                  <button class="btn btn-sm btn-warning btn-block" role="button" (click)='update()'>
+                  <button class="btn btn-sm btn-warning btn-block" role="button" (click)='update()' [disabled]="!moduleForm.form.valid">
                     <i class="fas fa-edit"></i> Editar {{ titleSingular }}
                   </button>
               </ng-template>
