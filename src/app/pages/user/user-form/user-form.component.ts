@@ -21,16 +21,14 @@ export class UserFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.cargarCliente();
+    this.loadData();
   }
 
-  cargarCliente() : void {
+  loadData() : void {
     this.activatedRoute.params.subscribe( params => {
       const id = params['id'];
       if (id) {
         this.userService.getById(id).subscribe( response => this.user = response );
-        console.log(this.user);
-        
       }
     });
   }

@@ -14,10 +14,17 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
 import { UserComponent } from './pages/user/user.component';
-import { UserService } from './services/user.service';
 import { UserFormComponent } from './pages/user/user-form/user-form.component';
 import { RoleComponent } from './pages/role/role.component';
 import { DataTablesModule } from 'angular-datatables';
+
+// Services
+import { UserService } from './services/user.service';
+import { RoleService } from './services/role.service';
+import { RoleFormComponent } from './pages/role/role-form/role-form.component';
+import { FunctionComponent } from './pages/function/function.component';
+import { FunctionFormComponent } from './pages/function/function-form/function-form.component';
+import { FunctionService } from './services/function.service';
 
 
 @NgModule({
@@ -38,9 +45,14 @@ import { DataTablesModule } from 'angular-datatables';
     UserComponent,
     UserFormComponent,
     RoleComponent,
+    RoleFormComponent,
+    FunctionComponent,
+    FunctionFormComponent,
   ],
   providers: [
     UserService,
+    RoleService,
+    FunctionService
   ],
   bootstrap: [AppComponent]
 })

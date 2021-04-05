@@ -1,0 +1,86 @@
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
+
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7 animate__animated animate__fadeIn">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0"><i class="fa {{ iconText }}"></i> Formulario {{ titlePlural }}</h3><br>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+              <button class="btn btn-sm btn-block btn-danger" type="button" [routerLink]="['/function']" >
+                <i class="fa fa-reply" aria-hidden="true"></i> Regresar 
+              </button>
+            </div>
+          </div><br>
+          
+          <form #moduleForm="ngForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label><b>Nombre</b></label>
+                  <input type="text" class="form-control" id="name" [(ngModel)]="functionO.name" name="name" placeholder="Nombre" #name="ngModel" required>
+                  <div class="" *ngIf="name.invalid && (name.dirty || name.touched)">
+                    <div *ngIf="name.errors.required">
+                      <span class="badge badge-danger"><i class="fas fa-times"></i> Nombre es requerido</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label><b>Código</b></label>
+                  <input type="text" class="form-control" id="code" [(ngModel)]="functionO.code" name="codeUser" placeholder="Código" #code="ngModel" required>
+                  <div class="" *ngIf="code.invalid && (code.dirty || code.touched)">
+                    <div *ngIf="code.errors.required">
+                      <span class="badge badge-danger"><i class="fas fa-times"></i> Código es requerido</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label><b>Estatus</b></label>
+                  <select class="form-control" id="status" [(ngModel)]="functionO.status" name="status" #status="ngModel" required>
+                    <option value="1">Activo</option>
+                    <option value="0">Inactivo</option>
+                  </select>
+                  <div class="" *ngIf="status.invalid && (status.dirty || status.touched)">
+                    <div *ngIf="status.errors.required">
+                      <span class="badge badge-danger"><i class="fas fa-times"></i> Estatus es requerido</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="row">
+              <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10"></div>
+              <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                <!-- Agregar-->
+                <button class="btn btn-sm btn-success btn-block" type="button" (click)='create()' 
+                        *ngIf="!functionO.idRole else elseBlock" [disabled]="!moduleForm.form.valid">
+                  <i class="fas fa-plus"></i> Guardar {{ titleSingular }}
+                </button>
+                <!-- Editar -->
+                <ng-template #elseBlock>
+                  <button class="btn btn-sm btn-warning btn-block" role="button" (click)='update()' [disabled]="!moduleForm.form.valid">
+                    <i class="fas fa-edit"></i> Editar {{ titleSingular }}
+                  </button>
+              </ng-template>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

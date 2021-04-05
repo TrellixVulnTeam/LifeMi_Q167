@@ -13,7 +13,7 @@
           <div class="row">
             <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
               <!-- Agregar-->
-              <button class="btn btn-sm btn-block btn-primary" type="button" [routerLink]="['/form-role']">
+              <button class="btn btn-sm btn-block btn-primary" type="button" [routerLink]="['/form-function']">
                 <i class="fas fa-plus"></i> Agregar {{ titleSingular }}
               </button>
             </div>
@@ -42,7 +42,7 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of listModel">
-                    <td>{{item.idRole}}</td>
+                    <td>{{item.idFunction}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.code}}</td>
                     <td>
@@ -57,7 +57,7 @@
                     </td>
                     <td>{{item.creationDateFormat}}</td>
                     <td>
-                      <button type="button" class="btn btn-warning btn-sm" [routerLink]="['/form-role', item.idRole]">
+                      <button type="button" class="btn btn-warning btn-sm" [routerLink]="['/form-function', item.idFunction]">
                         <i class="fas fa-edit"></i> Editar
                       </button> &nbsp;
 

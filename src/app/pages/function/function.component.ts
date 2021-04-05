@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Role } from 'src/app/model/role';
-import { RoleService } from 'src/app/services/role.service';
+import { FunctionO } from 'src/app/model/function'
+import { FunctionService } from 'src/app/services/function.service';
 import { LanguageApp } from 'src/app/variables/LenguageApp';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-role',
-  templateUrl: './role.component.html',
-  styleUrls: ['./role.component.css']
+  selector: 'app-function',
+  templateUrl: './function.component.html',
+  styleUrls: ['./function.component.css']
 })
-export class RoleComponent implements OnInit {
+export class FunctionComponent implements OnInit {
 
-  titleSingular : string = 'Rol';
-  titlePlural : string = 'Roles';
-  listModel : Role[] = [];
+  titleSingular : string = 'Función';
+  titlePlural : string = 'Funciones';
+  listModel : FunctionO[] = [];
   dtOptions: any;
   iconText: string = 'fa-tag';
 
-  constructor(private roleService : RoleService) { }
+  constructor(private functionService : FunctionService) { }
 
   ngOnInit(): void {
     this.get();
@@ -30,15 +30,16 @@ export class RoleComponent implements OnInit {
       pageLength: 10,
     };
 
-    this.roleService.get().subscribe( res => {
+    this.functionService.get().subscribe( res => {
       this.listModel = res;
     });
+    
   }
-  
-  public delete(role : Role) : void {
-    this.roleService.delete(role.idRole).subscribe( response => {
+
+  public delete(functionO : FunctionO) : void {
+    this.functionService.delete(functionO.idFunction).subscribe( response => {
       if (response.status == 200) {
-        if (role.status > 0) {
+        if (functionO.status > 0) {
           swal('Registro Deshabilitado', '', 'success');   
         } else {
           swal('Registro Habilitado', '', 'success');

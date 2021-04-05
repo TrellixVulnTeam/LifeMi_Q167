@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Subject } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
 import { LanguageApp } from 'src/app/variables/LenguageApp';
@@ -19,8 +17,7 @@ export class UserComponent implements OnInit {
   dtOptions: any;
   iconText: string = 'ni-single-02';
 
-  constructor(private userService : UserService,
-              private modalService: NgbModal) { }
+  constructor(private userService : UserService) { }
 
   ngOnInit(): void {
     this.get()
